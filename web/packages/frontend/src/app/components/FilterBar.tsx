@@ -18,7 +18,7 @@ export default function FilterBar({onCheckBoxClick}:
             </ul>
         </div>
         <div>
-            <h3>Essences</h3>
+            <h2>Services</h2>
             <ul>
                 <FilterCheckBox type='services' value="Aire de camping-cars" onCheckBoxClick={onCheckBoxClick}/>
                 <FilterCheckBox type='services' value="Bar" onCheckBoxClick={onCheckBoxClick}/>
