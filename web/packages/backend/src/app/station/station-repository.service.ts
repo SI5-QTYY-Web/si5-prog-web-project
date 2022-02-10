@@ -27,7 +27,9 @@ export class StationService {
   }
 
   async findSphere(longitudeCurrent:number,latitudeCurrent:number,maxDist:number,filter:Filter){
-    let listOrGasType = []
+    console.log("\n\n\n"+JSON.stringify(filter)+"\n\n\n end of filter")
+    let listOrGas = []
+    let listOrService = []
     if (filter.gas.length == 0){
       filter.gas=["Gazole",
         "SP95",
@@ -36,17 +38,51 @@ export class StationService {
         "E10",
         "SP98"]
     }
+
+    if (filter.services.length == 0){
+      filter.services= [
+        "Aire de camping-cars",
+        "Bar",
+        "Bornes électriques",
+        "Boutique alimentaire",
+        "Boutique non alimentaire",
+        "Carburant additivé",
+        "DAB (Distributeur automatique de billets)",
+        "Douches",
+        "Espace bébé",
+        "GNV",
+        "Lavage automatique",
+        "Lavage manuel",
+        "Laverie",
+        "Location de véhicule",
+        "Piste poids lourds",
+        "Relais colis",
+        "Restauration à emporter",
+        "Restauration sur place",
+        "Services réparation / entretien",
+        "Station de gonflage",
+        "Toilettes publiques",
+        "Vente d'additifs carburants",
+        "Vente de fioul domestique",
+        "Vente de gaz domestique (Butane, Propane)",
+        "Vente de pétrole lampant",
+        "Wifi"]
+    }
+
     for (const gasType of filter.gas){
 
-      listOrGasType.push({ prix : { $elemMatch : { "_attributes.nom": gasType }} } )}
+      listOrGas.push({ prix : { $elemMatch : { "_attributes.nom": gasType }} } )}
 
+    for (const gasService of filter.services){
+
+      listOrService.push({ "services.service" : { $elemMatch : { "_text": gasService }} } )}
 
     let query ={coordinates:{ $nearSphere: { $geometry: { type: "Point", coordinates: [ longitudeCurrent, latitudeCurrent ] }, $maxDistance: maxDist }},
-    "$or":listOrGasType}
+    "$and":[{"$or":listOrGas},{"$or":listOrService}]}
     let listGasStationPosition : GasStationPosition[] =[]
     console.log(JSON.stringify(query))
     let stations : Station[] = await this.stationModel.find(query).exec();
-
+    
     for (let station of stations){
       let address=""
       let id=""

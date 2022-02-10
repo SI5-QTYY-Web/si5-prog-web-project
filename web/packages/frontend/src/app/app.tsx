@@ -21,13 +21,40 @@ L.Marker.prototype.options.icon = DefaultIcon;
 const ALL_STATION_URL = "http://localhost:3333/api/station/near-station"
 const STATION_INFO = "http://localhost:3333/api/station/stations"
 
-const range = 10000
+const range = 20000
 
 
 function App() {
   const [stationList,setStationList] = useState<GasStationPosition[]>([]);
   const [gasStationInfo,setGasStationInfo] = useState<GasStationInfo>();
-  const [filter, setFilter] = useState<Filter>({gas:['Gazole', 'SP95','E85', 'GPLc', 'E10', 'SP98'],schedules:[],services:[]});
+  const servicesList:string[]=[
+  "Aire de camping-cars",
+  "Bar",
+  "Bornes électriques",
+  "Boutique alimentaire",
+  "Boutique non alimentaire",
+  "Carburant additivé",
+  "DAB (Distributeur automatique de billets)",
+  "Douches",
+  "Espace bébé",
+  "GNV",
+  "Lavage automatique",
+  "Lavage manuel",
+  "Laverie",
+  "Location de véhicule",
+  "Piste poids lourds",
+  "Relais colis",
+  "Restauration à emporter",
+  "Restauration sur place",
+  "Services réparation / entretien",
+  "Station de gonflage",
+  "Toilettes publiques",
+  "Vente d'additifs carburants",
+  "Vente de fioul domestique",
+  "Vente de gaz domestique (Butane, Propane)",
+  "Vente de pétrole lampant",
+  "Wifi"]
+  const [filter, setFilter] = useState<Filter>({gas:['Gazole', 'SP95','E85', 'GPLc', 'E10', 'SP98'],schedules:[],services:servicesList});
   const [position, setPosition] = useState<Position>({lat:43.675819, lon:7.289429});
 
   //const testPos:Position = navigator.geolocation.getCurrentPosition(onPositionChange());
@@ -83,7 +110,14 @@ function App() {
       setFilter({gas:newGasFilter, services:filter.services,schedules:filter.schedules})
     }
     if(type === "services"){
-      //TODO
+      let newServiceFilter:string[]|undefined;
+      if(checked){
+        newServiceFilter = filter.services.concat([gas]);
+      }
+      else{
+        newServiceFilter = filter?.services.filter((el) =>{return el !== gas});
+      }
+      setFilter({gas:filter.gas, services:newServiceFilter,schedules:filter.schedules})
     }
   }
 
