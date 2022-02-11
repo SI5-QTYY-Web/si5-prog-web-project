@@ -1,0 +1,91 @@
+{
+	"info": {
+		"_postman_id": "49014504-cd09-4102-9df5-999e86b76712",
+		"name": "progweb",
+		"description": "progweb",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Hello Auth",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3333/api/auth/hello",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"api",
+						"auth",
+						"hello"
+					]
+				},
+				"description": "create user"
+			},
+			"response": []
+		},
+		{
+			"name": "Create User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"randomU\",\n    \"password\": \"randomPassword\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3333/api/auth/signup",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"api",
+						"auth",
+						"signup"
+					]
+				},
+				"description": "Create User"
+			},
+			"response": []
+		},
+		{
+			"name": "Login as a user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"randomU\",\n    \"password\": \"randomPassword\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3333/api/auth/login",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				},
+				"description": "Create User"
+			},
+			"response": []
+		}
+	]
+}
