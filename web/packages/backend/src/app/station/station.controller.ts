@@ -13,7 +13,8 @@ export class StationController {
   @Get('near-station')
   public async getAllNearStation(@Query('longitude') longitude:string,@Query('latitude') latitude:string,@Query('maxDist') maxDist:string,@Query('filter') filter:Filter) {
     //console.log("Receive call with "+longitude+" "+latitude+" "+maxDist+" "+JSON.stringify(filter));
-    const stations = await this.stationRepository.findSphere(+longitude,+latitude,+maxDist,JSON.parse(filter));
+
+    const stations = await this.stationRepository.findSphere(+longitude,+latitude,+maxDist,filter);
     return stations;
   }
 

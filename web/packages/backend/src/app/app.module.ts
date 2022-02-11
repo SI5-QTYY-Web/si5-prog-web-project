@@ -26,8 +26,8 @@ import {UsersModule} from "./users/users.module";
       { name: 'USER', schema: UserSchema }
     ]),
     HttpModule,
-    //AuthModule,
-    //UsersModule,
+    AuthModule,
+    UsersModule,
   ],
   controllers: [
     StationController,

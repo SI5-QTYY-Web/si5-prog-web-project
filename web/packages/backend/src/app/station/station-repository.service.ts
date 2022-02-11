@@ -27,7 +27,8 @@ export class StationService {
   }
 
   async findSphere(longitudeCurrent:number,latitudeCurrent:number,maxDist:number,filter:Filter){
-    console.log("\n\n\n"+JSON.stringify(filter)+"\n\n\n end of filter")
+    //console.log("\n\n\n"+JSON.stringify(filter)+"\n\n\n end of filter")
+    filter=JSON.parse(""+filter)
     let listOrGas = []
     let listOrService = []
     if (filter.gas.length == 0){
@@ -80,7 +81,7 @@ export class StationService {
     let query ={coordinates:{ $nearSphere: { $geometry: { type: "Point", coordinates: [ longitudeCurrent, latitudeCurrent ] }, $maxDistance: maxDist }},
     "$and":[{"$or":listOrGas},{"$or":listOrService}]}
     let listGasStationPosition : GasStationPosition[] =[]
-    console.log(JSON.stringify(query))
+    //console.log(JSON.stringify(query))
     let stations : Station[] = await this.stationModel.find(query).exec();
     
     for (let station of stations){
@@ -112,14 +113,14 @@ export class StationService {
   }
 
   async findAll(query:any): Promise<Station[]> {
-    console.log(query)
+    //console.log(query)
     return this.stationModel.find(query).exec();
   }
 
 
   async readById(id:string){
     let stations : Station[] = await this.stationModel.find({"_attributes.id":id}).exec();
-    console.log("\n\n\n"+JSON.stringify(stations)+"\n\n\n");
+    //console.log("\n\n\n"+JSON.stringify(stations)+"\n\n\n");
 
     let listGasStationInfo : GasStationInfo[] =[]
     for (let station of stations){
@@ -192,7 +193,7 @@ export class StationService {
       let gasStationInfoToPush : GasStationInfo = {id:id,address:address,prices:gasPrice,services:gasServicesArray,schedules:schedules}  
       listGasStationInfo.push(gasStationInfoToPush)
     }
-    console.log(JSON.stringify(listGasStationInfo[0]))
+    //console.log(JSON.stringify(listGasStationInfo[0]))
     return listGasStationInfo[0]
   }
 
