@@ -4,11 +4,11 @@ import { useContext, useMemo } from 'react';
 import {MapContainer, TileLayer, ZoomControl} from 'react-leaflet';
 import MapMarker from './MapMarker';
 import MarkerClusterGroup from 'react-leaflet-markercluster';
-import { GeolocalisationContext } from "../context/GeolocalisationContext";
 import PositionUpdater from "./PositionUpdater";
 import { MapContext } from "../context/MapContext";
 import { Map } from "leaflet";
 import { ThemeContext } from "../context/ThemeContext";
+import { GeolocalisationContext } from "../context/GeolocalisationContext";
 
 export default function GlobalMap({markersList}:
 {markersList:GasStationPosition[]})

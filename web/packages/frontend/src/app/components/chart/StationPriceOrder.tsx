@@ -28,7 +28,7 @@ ChartJS.register(
 export default function StationPriceOrder() {
   const [stationFuelPrice, setStationFuelPrice] = useState<FuelStationPriceOrder[]>([])
   const { filterState } = useContext(FilterStationContext)
-  const { position } = useContext(GeolocalisationContext)
+  const [position,setPosition] = useContext(GeolocalisationContext)
   const range = 20000
 
   useEffect(() => {
