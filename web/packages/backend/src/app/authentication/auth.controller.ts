@@ -17,11 +17,6 @@ import {User} from "../schemas/user.schema";
 export class AuthController {
   constructor(private authService: AuthService) {}
 
-  @Get('hello')
-  getHello(){
-    return 'Hello';
-  }
-
   @Post('signup')
   async signUp(
     @Body(ValidationPipe) authCredentialsDto: AuthCredentialsDto,
@@ -30,13 +25,13 @@ export class AuthController {
   }
 
   @UseGuards(LocalAuthGuard)
-  @Post('/login')
+  @Post('login')
   async login(@Request() req: Request&{user:User}) {
     return this.authService.login(req.user);
   }
 
   @UseGuards(JwtAuthGuard)
-  @Get('/profile')
+  @Get('profile')
   getProfile(@Request() req: Request&{user:User}) {
     return req.user;
   }

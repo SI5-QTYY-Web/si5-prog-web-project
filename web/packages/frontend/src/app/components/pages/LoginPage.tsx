@@ -3,7 +3,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './LoginPage.scss'
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import {Breadcrumb} from "react-bootstrap";
 import { useNavigateNoUpdates } from "../../context/RouterUtils";
 import { AuthContext } from "../../context/AuthContext";
@@ -29,7 +29,7 @@ function LoginPage() {
         setUser(username);
 
         navigate("/")
-      }).catch((err)=>{
+      }).catch((err)=>{//TODO regarder code erreur + verif sur signup
         alert('Adresse mail ou mot de passe invalide');
         console.log('Login failed : ', err);
       })

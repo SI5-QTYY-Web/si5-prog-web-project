@@ -18,7 +18,7 @@ import {AuthController} from "./auth.controller";
     //We register to the JWTModule and setup the secret and the expiration time of the token
     JwtModule.register({
       secret: jwtConstants.secret,
-      signOptions: { expiresIn: '60s' },
+      signOptions: { expiresIn: '30m' },
     }),
   ],
   controllers: [AuthController,],

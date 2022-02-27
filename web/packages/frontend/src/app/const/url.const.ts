@@ -7,3 +7,6 @@ export const STATION_INFO = "/station/stations"
 export const REPORT_ISSUE = "/station/report"
 
 export const FRONT_STATION_ID = "/station/"
+
+export const FAVORITE_STATION_URL = "/favorite-station/user-station"
+export const UPDATE_FAVORITE_STATION_URL = "/favorite-station/update-user-station"
