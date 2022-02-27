@@ -106,18 +106,7 @@ export default function StationList() {
       isPriceAscending ? sortMethod = sortPriceUp : sortMethod = sortPriceDown
       return sortMethod(a, b);
     })
-    stations.sort((a: GasStationPosition, b: GasStationPosition) => {
-      isPriceAscending ? sortMethod = sortPriceUp : sortMethod = sortPriceDown
-      return sortMethod(a, b);
-    })
-    stations.sort((a: GasStationPosition, b: GasStationPosition) => {
-      isPriceAscending ? sortMethod = sortPriceUp : sortMethod = sortPriceDown
-      return sortMethod(a, b);
-    })
-    stations.sort((a: GasStationPosition, b: GasStationPosition) => {
-      isPriceAscending ? sortMethod = sortPriceUp : sortMethod = sortPriceDown
-      return sortMethod(a, b);
-    })
+
     setIsPriceAscending(!isPriceAscending);
     console.log(stations.length)
     setStationList([...stations, ...stationsWithoutTypeGas])
