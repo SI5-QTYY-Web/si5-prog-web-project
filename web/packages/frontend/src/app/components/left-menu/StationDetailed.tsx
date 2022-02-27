@@ -1,7 +1,6 @@
 import "./StationDetailed.scss"
 import { GasStationInfo, UserIssue } from '@web/common/dto';
 import React, { useContext, useEffect, useState } from 'react';
-import React, {useContext, useEffect, useState} from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import {BACKEND_BASE_URL, REPORT_ISSUE, STATION_INFO, UPDATE_FAVORITE_STATION_URL} from '../../const/url.const';
