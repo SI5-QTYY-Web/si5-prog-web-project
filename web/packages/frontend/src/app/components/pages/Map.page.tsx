@@ -39,6 +39,7 @@ export default function MapPage() {
   const [groupLayer, setGroupLayer] = useContext(DrawContext)
   const [map,setMap]:[Map, any] = useContext(MapContext);
   const {searchPosition} = useContext(GeolocalisationContext)
+  const {user, setUser, token, setToken, favoriteStations, setFavoriteStations} = useContext(AuthContext)
 
   function getAllStation(currentPos:Position, radius:number, filter:Filter) {
     console.log("CALL BACKEND FOR ALL STATION " + JSON.stringify(currentPos));
@@ -98,7 +99,7 @@ export default function MapPage() {
       schedules: []
     });
     getFavoriteStation().then(r => console.log('favorite stations in use effect : ', favoriteStations));
-  },[filterState, position])
+  },[filterState,  searchPosition])
 
   return (
     <div>

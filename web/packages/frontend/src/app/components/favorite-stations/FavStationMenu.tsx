@@ -11,7 +11,7 @@ export default function FavStationMenu({gasStationList}:{gasStationList:GasStati
     <div className='sideMenu'>
       <span>STATIONS FAVORITES</span>
       <Routes>
-        <Route path="/" element={<StationList stationList={gasStationList}/>}/>
+        <Route path="/" element={<StationList/>}/>
         <Route path={FRONT_STATION_ID+":id"} element={<StationDetailed/>}/>
       </Routes>
     </div>
