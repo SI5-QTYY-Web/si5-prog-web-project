@@ -38,9 +38,13 @@ export class FavoriteStationService {
 
 
     async setUserFavoriteStations(user:User, newFavStations:string[]){
+        try{
         const favStation:FavoriteStation = {username:user.username, favoriteStations:newFavStations}
         await this.favoriteStationModel.updateOne({username:user.username},favStation, {upsert:true});
 
         console.log("update or insert favorite station for user "+user.username+" with ["+newFavStations.join(",")+"]");
+        }catch(err){
+            console.log("No favorit station")
+        }
     }
 }

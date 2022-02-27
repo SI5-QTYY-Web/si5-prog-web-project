@@ -56,6 +56,16 @@
         "jestConfig": "packages/backend/jest.config.js",
         "passWithNoTests": true
       }
+    },
+    "deploy": {
+      "builder": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          "nx run backend:build:production",
+          "docker build -f packages/backend/Dockerfile dist/packages/backend -t backend-web"
+        ],
+        "parallel": false
+      }
     }
   },
   "tags": []

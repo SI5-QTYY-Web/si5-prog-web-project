@@ -78,6 +78,16 @@ npm install
 - You must have install the dependencies as shown before with npm install.
 - You must have start the database in order for the client and server to work properly
 
+### Config
+- To configurate a different database, you can change the environment database config on file `./web/packages/backend/src/environment.<prod or _>.ts`. In this file you can change DATABASE.
+
+- You can change default port of the backend when you set PORT environment (`setenv` in linux).
+- You can change the base host of the backend in the front in file `./web/packages/frontend/src/environment.<prod or _>.ts`.
+
+### Default config
+- default database host : `mongodb://admin:admin@127.0.0.1:27017/web`
+- default backend url : `http://localhost:3333/api`  
+This config work with the next commands part.
 ### Commands
 
 - Start the database (in the web directory):
@@ -89,10 +99,10 @@ docker-compose up
 - Start the client and the server (in the web directory):
 
 ```bash
-nx run-many --all --target=serve
+npx nx run-many --all --target=serve
 ```
 
-## Stop
+### Stop
 
 - Stop the client and the server:
 
@@ -114,6 +124,10 @@ following command and visualize it:
 ```bash
 docker ps -a
 ```
+## Deploy
+To generate the docker image of the backend run `npx nx run backend:deploy` this generate backend-web docker image.  
+To build the frontend in production mode, run `npx nx run frontend:build:production` this generate the build code in `./web/dist/frontend`.  
+You can do the same for the back to deploy without docker.
 
 ## Authors
 

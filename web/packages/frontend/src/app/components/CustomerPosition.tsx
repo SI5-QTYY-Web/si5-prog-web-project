@@ -3,8 +3,8 @@ import React from 'react'
 export default function CustomerPosition({onButtonClick}:
                                    {onButtonClick: (long: number, lat: number)=>void}) {
 
-  let long  = 2;
-  let lat  =  2;
+  const long  = 2;
+  const lat  =  2;
 
   return (
     <div>

@@ -1,0 +1,956 @@
+{
+	"info": {
+		"_postman_id": "1e36f636-a47e-4d86-96c5-947fc4341b88",
+		"name": "Projet web",
+		"description": "Projet web API description",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "api",
+			"item": [
+				{
+					"name": "station",
+					"item": [
+						{
+							"name": "Station Controller get All Near Station",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"})"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/station/near-station?latitude=43.7&longitude=7.289429&maxDist=40000&filter=%7B%22gas%22:[%22E85%22],%22services%22:[%22Boutique+non+alimentaire%22],%22schedules%22:[]%7D",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"station",
+										"near-station"
+									],
+									"query": [
+										{
+											"key": "latitude",
+											"value": "43.7",
+											"description": "(Required) "
+										},
+										{
+											"key": "longitude",
+											"value": "7.289429",
+											"description": "(Required) "
+										},
+										{
+											"key": "maxDist",
+											"value": "40000",
+											"description": "(Required) "
+										},
+										{
+											"key": "filter",
+											"value": "%7B%22gas%22:[%22E85%22],%22services%22:[%22Boutique+non+alimentaire%22],%22schedules%22:[]%7D",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Untitled Response",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/station/near-station?longitude=75630124.44067279&latitude=75630124.44067279&maxDist=75630124.44067279&filter=reprehenderit consequat",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"station",
+												"near-station"
+											],
+											"query": [
+												{
+													"key": "longitude",
+													"value": "75630124.44067279"
+												},
+												{
+													"key": "latitude",
+													"value": "75630124.44067279"
+												},
+												{
+													"key": "maxDist",
+													"value": "75630124.44067279"
+												},
+												{
+													"key": "filter",
+													"value": "reprehenderit consequat"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Station Controller find By Id",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"})"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/station/stations/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"station",
+										"stations",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "59780003",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Untitled Response",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/station/stations/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"station",
+												"stations",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "reprehenderit consequat",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Station Controller user Issue",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"})"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"issue\": {\"stationId\": \"6000026\", \"userMsg\": \"hello world\"}}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/station/report",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"station",
+										"report"
+									],
+									"query": [
+										{
+											"key": "msg",
+											"value": "toto",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Untitled Response",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/station/report",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"station",
+												"report"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Station Controller get All Fuel Type",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"})"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/station/fuel-type",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"station",
+										"fuel-type"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Untitled Response",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/station/fuel-type",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"station",
+												"fuel-type"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Station Controller get All Service Type",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"})"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/station/service-type",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"station",
+										"service-type"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Untitled Response",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/station/service-type",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"station",
+												"service-type"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Station Controller get All City",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"})"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/station/city",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"station",
+										"city"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Untitled Response",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/station/city",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"station",
+												"city"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "chart",
+					"item": [
+						{
+							"name": "Chart Controller get All Near Station",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"})"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/chart/general-fuels-price?latitude=43.7&longitude=7.289429&maxDist=40000&filter=%7B%22gas%22:[%22E85%22],%22services%22:[%22Boutique+non+alimentaire%22],%22schedules%22:[]%7D",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"chart",
+										"general-fuels-price"
+									],
+									"query": [
+										{
+											"key": "latitude",
+											"value": "43.7"
+										},
+										{
+											"key": "longitude",
+											"value": "7.289429"
+										},
+										{
+											"key": "maxDist",
+											"value": "40000"
+										},
+										{
+											"key": "filter",
+											"value": "%7B%22gas%22:[%22E85%22],%22services%22:[%22Boutique+non+alimentaire%22],%22schedules%22:[]%7D"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Untitled Response",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/chart/general-fuels-price?longitude=75630124.44067279&latitude=75630124.44067279&maxDist=75630124.44067279&filter=reprehenderit consequat",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"chart",
+												"general-fuels-price"
+											],
+											"query": [
+												{
+													"key": "longitude",
+													"value": "75630124.44067279"
+												},
+												{
+													"key": "latitude",
+													"value": "75630124.44067279"
+												},
+												{
+													"key": "maxDist",
+													"value": "75630124.44067279"
+												},
+												{
+													"key": "filter",
+													"value": "reprehenderit consequat"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Chart Controller get Fuels Station Ordered Price",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"})"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/chart/fuels-station-order-price?latitude=43.7&longitude=7.289429&maxDist=40000&filter=%7B%22gas%22:[%22E85%22],%22services%22:[%22Boutique+non+alimentaire%22],%22schedules%22:[]%7D&maxStation=10",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"chart",
+										"fuels-station-order-price"
+									],
+									"query": [
+										{
+											"key": "latitude",
+											"value": "43.7"
+										},
+										{
+											"key": "longitude",
+											"value": "7.289429"
+										},
+										{
+											"key": "maxDist",
+											"value": "40000"
+										},
+										{
+											"key": "filter",
+											"value": "%7B%22gas%22:[%22E85%22],%22services%22:[%22Boutique+non+alimentaire%22],%22schedules%22:[]%7D"
+										},
+										{
+											"key": "maxStation",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Untitled Response",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/chart/fuels-station-order-price?longitude=75630124.44067279&latitude=75630124.44067279&maxDist=75630124.44067279&filter=reprehenderit consequat&maxStation=75630124.44067279",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"chart",
+												"fuels-station-order-price"
+											],
+											"query": [
+												{
+													"key": "longitude",
+													"value": "75630124.44067279"
+												},
+												{
+													"key": "latitude",
+													"value": "75630124.44067279"
+												},
+												{
+													"key": "maxDist",
+													"value": "75630124.44067279"
+												},
+												{
+													"key": "filter",
+													"value": "reprehenderit consequat"
+												},
+												{
+													"key": "maxStation",
+													"value": "75630124.44067279"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "auth+favorite",
+					"item": [
+						{
+							"name": "Create User",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"})"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"randomU\",\n    \"password\": \"randomPassword\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3333/api/auth/signup",
+									"host": [
+										"localhost"
+									],
+									"port": "3333",
+									"path": [
+										"api",
+										"auth",
+										"signup"
+									]
+								},
+								"description": "Create User"
+							},
+							"response": []
+						},
+						{
+							"name": "Login as a user",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"})"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"randomU\",\n    \"password\": \"randomPassword\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3333/api/auth/login",
+									"host": [
+										"localhost"
+									],
+									"port": "3333",
+									"path": [
+										"api",
+										"auth",
+										"login"
+									]
+								},
+								"description": "Create User"
+							},
+							"response": []
+						},
+						{
+							"name": "Get User Profile",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"})"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJhbmRvbVUiLCJzdWIiOiI2MjA0ZTAwOTExYTY2NDFjZmQ4ODYyNDYiLCJpYXQiOjE2NDYwMDAwMDIsImV4cCI6MTY0NjAwMTgwMn0.41ZZZravssN7YmoxLpK6boxS30eS8-90u9uQK9eF5xA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3333/api/auth/profile",
+									"host": [
+										"localhost"
+									],
+									"port": "3333",
+									"path": [
+										"api",
+										"auth",
+										"profile"
+									]
+								},
+								"description": "Create User"
+							},
+							"response": []
+						},
+						{
+							"name": "Get Favorite Collection",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"})"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJhbmRvbVUiLCJzdWIiOiI2MjA0ZTAwOTExYTY2NDFjZmQ4ODYyNDYiLCJpYXQiOjE2NDYwMDAwMDIsImV4cCI6MTY0NjAwMTgwMn0.41ZZZravssN7YmoxLpK6boxS30eS8-90u9uQK9eF5xA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3333/api/favorite-station/user-station",
+									"host": [
+										"localhost"
+									],
+									"port": "3333",
+									"path": [
+										"api",
+										"favorite-station",
+										"user-station"
+									]
+								},
+								"description": "Get Favorite Collection"
+							},
+							"response": []
+						},
+						{
+							"name": "Set Favorite Stations",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"})"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJhbmRvbVUiLCJzdWIiOiI2MjA0ZTAwOTExYTY2NDFjZmQ4ODYyNDYiLCJpYXQiOjE2NDYwMDAwMDIsImV4cCI6MTY0NjAwMTgwMn0.41ZZZravssN7YmoxLpK6boxS30eS8-90u9uQK9eF5xA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3333/api/favorite-station/update-user-station",
+									"host": [
+										"localhost"
+									],
+									"port": "3333",
+									"path": [
+										"api",
+										"favorite-station",
+										"update-user-station"
+									]
+								},
+								"description": "Get Favorite Collection"
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "localhost:3333",
+			"type": "string"
+		}
+	]
+}

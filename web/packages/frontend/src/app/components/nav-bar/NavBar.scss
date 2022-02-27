@@ -29,3 +29,19 @@
   margin: 10px;
   float: right;
 }
+
+
+@media screen and (max-width: 700px) {
+  .navBar{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr ;
+    width: 100%;
+    .loginButton{
+      grid-column-start: 1;
+      grid-column-end: 3;
+    }
+    .custom-theme-switch{
+      margin: auto;
+    }
+  }
+}
